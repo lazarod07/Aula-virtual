@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter 
@@ -15,6 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
 public class User {
 
     @Id
