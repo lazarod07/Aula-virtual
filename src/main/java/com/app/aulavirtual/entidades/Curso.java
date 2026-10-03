@@ -1,10 +1,14 @@
 package com.app.aulavirtual.entidades;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,20 +20,23 @@ import lombok.Setter;
 @AllArgsConstructor 
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "curso")
+public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "nombre")
+    private String nombre;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "codigo")
+    private String codigo;
 
-    @Column(name = "role")
-    private String role;
+    @ManyToMany(mappedBy = "cursos")
+    private List<Estudiante> estudiantes;
+
+    @ManyToOne
+    private Profesor profesor;
 
 }
